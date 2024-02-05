@@ -190,7 +190,7 @@ if __name__ == "__main__":
     exec_target_name = "full"
     test_run = False
 
-    conf = Configuration(config_file=Configuration.default_hamas)
+    conf = Configuration(config_file=Configuration.default_test)
     exec_target = exec_targets[exec_target_name]
 
     run(exec_target, conf, test_run)

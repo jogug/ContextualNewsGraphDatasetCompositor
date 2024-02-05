@@ -2,9 +2,8 @@ from src.util.Configuration import Configuration
 
 
 def create_database_structure(config: Configuration):
-    db = config.get_db()
+    db = config.get_db_no_datase_selected()
     DB_database = config.DB_database
-
     drop_database = config.drop_database
 
     DATA_TWEET_TABLE = config.DATA_TWEET_TABLE
@@ -16,11 +15,11 @@ def create_database_structure(config: Configuration):
 
     # Drop Database
     if drop_database:
-        statement_db = f"""DROP DATABASE IF EXISTS {DB_database}"""
+        statement_db = f"""DROP DATABASE IF EXISTS {DB_database};"""
         db.execute(statement=statement_db)
         
     # Create Database
-    statement_db = f"""CREATE DATABASE IF NOT EXISTS {DB_database}"""
+    statement_db = f"""CREATE DATABASE IF NOT EXISTS {DB_database};"""
     db.execute(statement=statement_db)
 
     # Create Tables
@@ -30,14 +29,14 @@ def create_database_structure(config: Configuration):
         `source_tweet_id` bigint(25) NOT NULL,
         `tweet_id` bigint(25) NOT NULL,
         `author_id` bigint(25) NOT NULL,
-        `created_at` varchar(50) DEFAULT NULL,
+        `created_at` varchar(255) DEFAULT NULL,
         `ttt` int(30) DEFAULT NULL,
         `realfake` enum('real','fake') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-        `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+        `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
         `selected` int(4) NOT NULL DEFAULT 0,
         `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
         `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-        `stance` varchar(25) DEFAULT NULL
+        `stance` varchar(255) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
     """
     statement_create_tweet_table_key = f"""
@@ -50,7 +49,7 @@ def create_database_structure(config: Configuration):
     statement_create_article_table = f"""
     CREATE TABLE IF NOT EXISTS {DB_database}.`{DATA_ARTICLE_TABLE}` (
         `id` int(11) NOT NULL,
-        `tag` varchar(20) NOT NULL,
+        `tag` varchar(255) NOT NULL,
         `source` varchar(255) NOT NULL,
         `source_url` text DEFAULT NULL,
         `source_clean` varchar(255) DEFAULT NULL,
@@ -59,8 +58,8 @@ def create_database_structure(config: Configuration):
         `news_url3` text DEFAULT NULL,
         `news_url4` text DEFAULT NULL,
         `news_url5` text DEFAULT NULL,
-        `target` varchar(20) NOT NULL,
-        `realfake` varchar(10) NOT NULL,
+        `target` varchar(255) NOT NULL,
+        `realfake` varchar(255) NOT NULL,
         `url` varchar(255) NOT NULL,
         `statement` text NOT NULL,
         `newstitle` text NOT NULL DEFAULT '',
@@ -82,10 +81,10 @@ def create_database_structure(config: Configuration):
     statement_create_user_table = f"""
     CREATE TABLE IF NOT EXISTS {DB_database}.`{DATA_USER_TABLE}` (
         `userID` bigint(20) NOT NULL,
-        `status` varchar(10) NOT NULL DEFAULT 'False',
+        `status` varchar(255) NOT NULL DEFAULT 'False',
         `content` longtext NOT NULL DEFAULT '',
         `status_followers` int(11) NOT NULL DEFAULT 0,
-        `status_timeline` varchar(10) NOT NULL DEFAULT 'Reload',
+        `status_timeline` varchar(255) NOT NULL DEFAULT 'Reload',
         `timeline` text DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
     """
@@ -110,12 +109,12 @@ def create_database_structure(config: Configuration):
         `id` int(11) NOT NULL,
         `name` varchar(255) NOT NULL,
         `url` varchar(255) NOT NULL,
-        `status_home` varchar(25) NOT NULL DEFAULT 'False',
+        `status_home` varchar(255) NOT NULL DEFAULT 'False',
         `home` text DEFAULT NULL,
-        `status_about` varchar(25) NOT NULL DEFAULT 'False',
+        `status_about` varchar(255) NOT NULL DEFAULT 'False',
         `about` text DEFAULT NULL,
-        `media_factuality_status` varchar(25) NOT NULL DEFAULT 'False',
-        `media_factuality` varchar(50) DEFAULT NULL
+        `media_factuality_status` varchar(255) NOT NULL DEFAULT 'False',
+        `media_factuality` varchar(255) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
     """
     statement_create_source_table_key = f"""
@@ -131,9 +130,9 @@ def create_database_structure(config: Configuration):
     statement_create_media_table = f"""
     CREATE TABLE IF NOT EXISTS {DB_database}.`{DATA_MEDIA_TABLE}` (
         `id` int(11) NOT NULL DEFAULT 0,
-        `name` varchar(63) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-        `url` varchar(95) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-        `factuality` varchar(14) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+        `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+        `url` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+        `factuality` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
     """
     statement_create_media_table_key = f"""

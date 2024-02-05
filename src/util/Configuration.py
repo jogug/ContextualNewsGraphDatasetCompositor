@@ -58,6 +58,13 @@ class Configuration():
             "password" : self.DB_password, 
             "database" : self.DB_database
         })
+    
+    def get_db_no_datase_selected(self):
+        return Database(connection_params={
+            "host" : self.DB_host,
+            "user" : self.DB_user,
+            "password" : self.DB_password
+        })
 
 
 
