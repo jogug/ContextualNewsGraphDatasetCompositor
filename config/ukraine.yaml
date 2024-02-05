@@ -1,0 +1,95 @@
+# Base Parameters
+data_tag : "ukraine"
+data_folder_path: '{base_folder}/output/data_ukraine/'
+data_dataset_folder_path: '{base_folder}/output/data_ukraine/news_graph/'
+twitterv2_credential_file_path: '{base_folder}/twitter_v2_credentials.yaml'
+twitterv1_credential_file_path: '{base_folder}/twitter_v1_credentials.txt'
+
+# Database Parameters
+DB_host : "192.168.1.5"
+DB_user : "master_tesis"
+DB_password : "ETDRorzDlJGbsRZ9"
+DB_database : "twitter_ukraine"
+
+# Train Test Validation Split Configuration
+subsets : [20,50,80,90]
+
+# Database Tables
+DATA_SOURCE_TABLE : "source"
+DATA_ARTICLE_TABLE : "article"
+DATA_MEDIA_TABLE : "media"
+DATA_USER_TABLE : "user"
+DATA_USER_RELATION_TABLE : "user_relation"
+DATA_TWEET_TABLE : "tweet"
+DATA_USER_RELATIONS_ACITVE : "user_relation_active"
+
+# Database Columns
+factuality_column : "factuality"
+NEWS_TITLE_COLUMN : "statement"
+
+# Data Collection Target Posts
+HAS_TWEET_ARTICLES : True
+respected_sources : ["nytimes", "washingtonpost", "DailyMailUK", "YahooNews"]
+respected_sources_twitter_ids : ["807095", "2467791", "111556423", "7309052"]
+respected_sources_websites : ["nytimes.com", "washingtonpost.com", "dailymail.co.uk", "yahoo.com"]
+
+# TFIDF
+TFIDF_EXPECTED_FEATURES : 8
+
+# Prefixes
+PRE_USER : "user_"
+PRE_ARTICLE : "news_"
+PRE_SOURCE : "source_"
+PRE_MEDIA : "media_"
+PRE_USER_RELATION : "user_relation_"
+PRE_TWEET : "tweet_"
+
+# Packaged Data
+zip_file_name : "data_ukraine_new" 
+
+# TASK 1 Create Database
+drop_database : False
+
+# TASK 2 Collect politifact
+max_politifact_pages : 2
+tag_names : ["ukraine", "russia"]
+
+# TASK 3 Combine Articles
+articles_combined_filename : "articles_combined.csv"
+
+# TASK 9 Clean Sources
+source_mapping:
+    "instagram" : "instagram.com"
+
+factuality_mapping:
+    "nytimes.com" : "new york times"
+    "washingtonpost.com" : "washington post"
+    "dailymail.co.uk" : "daily mail"
+    "yahoo.com" : "yahoo news"
+    
+
+# TASK 11 Download Main Tweet IDs; Try finding associated tweets as FakeNewsNet did
+search_tweets_from : "2022-01-01T00:00"
+nr_words_statement : 20
+filter_by_source_tweets : False
+skip : 0
+max_query_length : 1024
+
+# TASK 13 Clean Fake Main Tweet IDs
+# TASK 14 Clean Real Main Tweet IDs
+sequence_filter : False
+politifact_filter : True
+fake_filter : False
+
+# TASK 15 Load Replies to these tweets
+skip_main_tweets : 0
+
+# TASK 20 Download Users
+rate_sleep_time : 960
+rate_counter_limit : 900
+
+# TASK 21 Download Followers
+followers_limit : 5000
+
+# Test Helper
+nr_per_realfake : 30

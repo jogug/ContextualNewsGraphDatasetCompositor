@@ -1,0 +1,9 @@
+mysql-connector-python
+PyYAML
+scikit-learn
+nltk
+newspaper3k
+url-parser
+searchtweets-v2
+url-parser
+tweepy

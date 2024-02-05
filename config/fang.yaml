@@ -1,0 +1,5 @@
+# Base Parameters
+data_tag : "fang"
+data_folder_path: '{base_folder}/output/data_fang/'
+data_dataset_folder_path: '{base_folder}/output/data_fang/news_graph/'
+twitterv2_credential_file_path: '{base_folder}/twitter_v2_credentials.yaml'
