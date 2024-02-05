@@ -14,23 +14,23 @@ from src.media_factuality.load_media_factuality_into_db import load_media_factua
 from src.source.clean_source import clean_source
 from src.source.collect_source import collect_source
 
-from src.social_graph.download_main_tweet_id import download_main_tweet_id
-from src.social_graph.download_user_tweets_topic import download_user_tweets_topic
+from src.social_graph.collect_main_tweet_id import collect_main_tweet_id
+from src.social_graph.collect_user_tweets_topic import collect_user_tweets_topic
 
 from src.social_graph.clean_fake_main_tweet_id import clean_fake_main_tweet_id
 from src.social_graph.clean_real_main_tweet_id import clean_real_main_tweet_id
 
-from src.social_graph.download_reply_tweet_id import download_reply_tweet_id
+from src.social_graph.collect_reply_tweet_id import collect_reply_tweet_id
 from src.social_graph.clean_reply_tweet_fake_id import clean_reply_tweet_fake_id
 from src.social_graph.clean_reply_tweet_real_id import clean_reply_tweet_real_id
 from src.social_graph.load_tweets_into_db import load_tweets_into_db
 
 from src.social_graph.clean_user_id import clean_user_id
-from src.social_graph.download_user import download_users
-from src.social_graph.download_followers import download_followers
+from src.social_graph.collect_user import collect_users
+from src.social_graph.collect_followers import collect_followers
 from src.social_graph.clean_followers import clean_followers
 
-from src.social_graph.download_tweet_context import download_tweet_context
+from src.social_graph.collect_tweet_context import collect_tweet_context
 
 from src.stance_prediction.prepare_stance_prediction_from_db_politifact import prepare_stance_prediction_from_db_politifact
 from src.stance_prediction.prepare_stance_prediction_from_db_real_twitter import prepare_stance_prediction_from_db_real_twitter
@@ -71,9 +71,9 @@ exec_order = [
     collect_source,
 
     # TASK 11 Download Main Tweet IDs; Try finding associated tweets as FakeNewsNet did
-    download_main_tweet_id,
+    collect_main_tweet_id,
     # TASK 12 Download User Tweets by Topic
-    download_user_tweets_topic,
+    collect_user_tweets_topic,
 
     # TASK 13 Clean Fake Main Tweet IDs
     clean_fake_main_tweet_id,
@@ -81,7 +81,7 @@ exec_order = [
     clean_real_main_tweet_id,
 
     # TASK 15 Load Replies to these tweets
-    download_reply_tweet_id,
+    collect_reply_tweet_id,
     # TASK 16 Clean Replies to these fake tweets
     clean_reply_tweet_fake_id,
     # TASK 17 Clean Replies to these real tweets
@@ -93,14 +93,14 @@ exec_order = [
     # TASK 19 Clean User IDs
     clean_user_id,
     # TASK 20 Download Users
-    download_users,
+    collect_users,
     # TASK 21 Download Followers
-    download_followers,
+    collect_followers,
     # TASK 22 Clean Followers
     clean_followers,
 
     # TASK 23 Download Tweet Context : Extends the tweet data with context
-    download_tweet_context,
+    collect_tweet_context,
 
     # TASK 24 Prepare Stance Detection Target News
     prepare_stance_prediction_from_db_politifact,

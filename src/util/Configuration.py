@@ -5,7 +5,7 @@ class Configuration():
     default_fang = "config/fang.yaml"
     default_ukraine = "config/ukraine.yaml"
     default_coaid = "config/coaid.yaml"
-    default_hamas = "config/hamas.yaml"
+    default_test = "config/test.yaml"
 
     def __init__(self, config_file='config/ukraine.yaml'):
 

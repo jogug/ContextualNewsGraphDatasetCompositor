@@ -1,7 +1,7 @@
 # Base Parameters
 data_tag : "ukraine"
-data_folder_path: '{base_folder}/output/data_hamas/'
-data_dataset_folder_path: '{base_folder}/output/data_hamas/news_graph/'
+data_folder_path: '{base_folder}/output/data_test/'
+data_dataset_folder_path: '{base_folder}/output/data_test/news_graph/'
 twitterv2_credential_file_path: '{base_folder}/twitter_v2_credentials.yaml'
 twitterv1_credential_file_path: '{base_folder}/twitter_v1_credentials.txt'
 
@@ -9,7 +9,7 @@ twitterv1_credential_file_path: '{base_folder}/twitter_v1_credentials.txt'
 DB_host : "192.168.1.5"
 DB_user : "master_tesis"
 DB_password : "ETDRorzDlJGbsRZ9"
-DB_database : "twitter_hamas"
+DB_database : "news_graph_test"
 
 # Train Test Validation Split Configuration
 subsets : [20,50,80,90]
@@ -42,7 +42,7 @@ PRE_USER_RELATION : "user_relation_"
 PRE_TWEET : "tweet_"
 
 # Packaged Data
-zip_file_name : "data_hamas_new" 
+zip_file_name : "data_test_new" 
 
 # TASK 1 Create Database
 drop_database : True
@@ -63,7 +63,6 @@ factuality_mapping:
     "washingtonpost.com" : "washington post"
     "dailymail.co.uk" : "daily mail"
     "yahoo.com" : "yahoo news"
-
 
 # TASK 11 Download Main Tweet IDs; Try finding associated tweets as FakeNewsNet did
 search_tweets_from : "2024-01-01T00:00"

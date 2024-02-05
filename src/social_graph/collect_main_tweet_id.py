@@ -113,7 +113,7 @@ def collect_tweet_ids(out_file_path: str, data: pd.DataFrame, search_tweets_from
     print("uniqe statements", unique_statements)
 
 
-def download_main_tweet_id(conf):
+def collect_main_tweet_id(conf):
     misinformation_data = []
     in_file_path = conf.data_folder_path + 'articles.csv'
     out_file_path = conf.data_folder_path + 'tweets_unfiltered_fake_main.txt'
@@ -122,7 +122,7 @@ def download_main_tweet_id(conf):
     misinformation_data.append(df)
     misinformation_data = pd.concat(misinformation_data)
 
-    download_tweet_ids(
+    collect_tweet_ids(
         out_file_path=out_file_path, 
         data=misinformation_data, 
         search_tweets_from=conf.search_tweets_from, 

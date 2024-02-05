@@ -9,7 +9,7 @@ twitterv1_credential_file_path: '{base_folder}/twitter_v1_credentials.txt'
 DB_host : "192.168.1.5"
 DB_user : "master_tesis"
 DB_password : "ETDRorzDlJGbsRZ9"
-DB_database : "twitter_ukraine"
+DB_database : "news_graph_ukraine"
 
 # Train Test Validation Split Configuration
 subsets : [20,50,80,90]
