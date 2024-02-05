@@ -5,7 +5,7 @@ from src.util.Configuration import Configuration
 # Credits adapted from 
 # https://github.com/TIMAN-group/covid19_misinformation/blob/master/data/extract_real_and_fake_tweets_coaid.py
 
-def download_tweet_context(config : Configuration):
+def collect_tweet_context(config : Configuration):
 
     # Parameters
     DB_database = config.DB_database

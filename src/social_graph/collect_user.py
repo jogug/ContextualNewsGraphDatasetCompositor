@@ -6,7 +6,7 @@ from src.util.StringCleanUtil import clean_text_name
 # Credits adapted from 
 # https://github.com/TIMAN-group/covid19_misinformation/blob/master/data/extract_real_and_fake_tweets_coaid.py
 
-def download_users (config : Configuration):
+def collect_users (config : Configuration):
     Db_database = config.Db_database
     bearer_token = config.search_tweets_v2["bearer_token"]
     DATA_USER_TABLE = config.DATA_USER_TABLE

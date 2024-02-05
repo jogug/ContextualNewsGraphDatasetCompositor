@@ -86,7 +86,7 @@ def search_twitter(credential_file, search_tweets_from, search_text, statement, 
 def shorten_statement (statement, nr_words_statement):
     return " ".join(statement.strip().split(" ")[:nr_words_statement])
 
-def download_tweet_ids(out_file_path: str, data: pd.DataFrame, search_tweets_from, credential_file, 
+def collect_tweet_ids(out_file_path: str, data: pd.DataFrame, search_tweets_from, credential_file, 
         nr_words_statement, max_query_length, filter_by_source_tweets = False, skip=0):
     statement_hash = {}
     unique_statements = 0

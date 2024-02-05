@@ -54,7 +54,7 @@ def search_twitter(credential_file, start_time, tweet_id, out_file_path):
 
 
 #-------------------------------
-def download_reply_tweet_id(config: Configuration):
+def collect_reply_tweet_id(config: Configuration):
     # Parameters
     credential_file = config.twitterv2_credential_file_path
     start_time = config.search_tweets_from

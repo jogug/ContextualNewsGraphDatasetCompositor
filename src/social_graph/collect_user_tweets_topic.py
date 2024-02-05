@@ -43,7 +43,7 @@ def build_twitter_search_query (twitter_handle, text, max_query_length) :
         return None
     return out_query
 
-def download_user_tweets_topic(config: Configuration):
+def collect_user_tweets_topic(config: Configuration):
 
     out_filename = "tweets_unfiltered_topic_real_main.txt"
     out_filepath = config.data_folder_path + out_filename
