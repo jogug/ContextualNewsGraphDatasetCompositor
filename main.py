@@ -187,7 +187,7 @@ def run (exec_target, conf: Configuration, test_run):
 # Main Entry Point
 if __name__ == "__main__":
 
-    exec_target_name = "full"
+    exec_target_name = "task4"
     test_run = False
 
     conf = Configuration(config_file=Configuration.default_test)

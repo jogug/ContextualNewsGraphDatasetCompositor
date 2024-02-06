@@ -1,7 +1,6 @@
 import json
 import pandas as pd
 from tqdm import tqdm
-from src.util.Database import Database
 from src.util.Configuration import Configuration
 
 
@@ -52,7 +51,7 @@ def load_annotated_target_into_db(config: Configuration):
             cur_insert["news_url"] = json.loads(row["fact_sources"])[0]["url"]
             cur_insert["statement"] = row["statement"].replace("\\'", "").replace("\'", "").replace("'", "")
             cur_insert["date"] = row["date"]
-            cur_insert["published_date"] = json.loads(row["fact_sources"])[0]["visited_date"]
+            cur_insert["published_date"] = json.loads(row["fact_sources"])[0]["visited_date"].replace("\\'", "").replace("\'", "").replace("'", "")
             cur_insert["author"] = row["author"].replace("\\'", "").replace("\'", "").replace("'", "")
             cur_insert["fact_source"] = json.dumps(row["fact_sources"]).replace("\\'", "").replace("\'", "").replace("'", "")
             cur_inserts.append(cur_insert)
@@ -67,6 +66,8 @@ def load_annotated_target_into_db(config: Configuration):
 
     db = config.get_db()
     for cur_insert in tqdm(cur_inserts):
+        print(statement.format(**cur_insert))
+
         db.execute(statement=statement.format(**cur_insert))
     db.disconnect()
     

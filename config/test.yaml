@@ -49,7 +49,7 @@ drop_database : True
 
 # TASK 2 Collect politifact
 max_politifact_pages : 2
-tag_names : ["israel"]
+tag_names : ["guns"]
 
 # TASK 3 Combine Articles
 articles_combined_filename : "articles_combined.csv"
