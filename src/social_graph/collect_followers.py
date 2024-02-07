@@ -2,8 +2,7 @@ import tweepy
 import numpy as np
 from src.util.Configuration import Configuration
 
-# Credits adapted from 
-# https://github.com/TIMAN-group/covid19_misinformation/blob/master/data/extract_real_and_fake_tweets_coaid.py
+# Adapted from https://docs.tweepy.org/en/stable/api.html
 
 def collect_followers(config: Configuration):
     DB_database = config.DB_database

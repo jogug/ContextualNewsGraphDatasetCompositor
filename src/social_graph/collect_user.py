@@ -3,8 +3,6 @@ from src.util.Configuration import Configuration
 from src.util.RateLimitCounter import RateLimitCounter
 from src.util.StringCleanUtil import clean_text_name
 
-# Credits adapted from 
-# https://github.com/TIMAN-group/covid19_misinformation/blob/master/data/extract_real_and_fake_tweets_coaid.py
 
 def collect_users (config : Configuration):
     Db_database = config.Db_database

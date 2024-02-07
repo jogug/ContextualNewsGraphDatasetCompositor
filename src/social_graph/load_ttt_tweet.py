@@ -1,6 +1,7 @@
 import json, datetime
 from src.util.Configuration import Configuration
 
+
 def load_tweets(config: Configuration):
     DB_database = config.DB_database
     DATA_TWEET_TABLE = config.DATA_TWEET_TABLE

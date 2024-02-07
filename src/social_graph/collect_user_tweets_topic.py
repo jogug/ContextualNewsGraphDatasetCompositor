@@ -3,8 +3,7 @@ from src.util.Configuration import Configuration
 from searchtweets import ResultStream, gen_request_parameters, load_credentials
 from src.util.StringCleanUtil import clean_text_for_search
 
-# Credits adapted from 
-# https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/main/User-Tweet-Timeline/user_tweets.py
+# Adapted from Documentation https://pypi.org/project/searchtweets-v2/
 
 def connect_to_endpoint(url, params, bearer_token):
     response = requests.request("GET", url, params=params, headers={
